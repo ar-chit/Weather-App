@@ -132,6 +132,7 @@ async function showWeatherByCity(city) {
         if (data.cod == 404) {
             errorMessage.style.display = 'block';
         } else {
+            errorMessage.style.display = 'none';
             currentClass(loader);
             searchedCity = true;
             renderWeatherInfo(data);
