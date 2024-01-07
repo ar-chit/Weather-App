@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon">
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div class="wrapper p-8">
+
+        <h1 class="text-4xl font-bold mb-8 cursor-pointer" heading>Weather App</h1>
+
+        <div class=" flex space-x-4 mb-4">
+            <button data-yourWeather>Your Weather</button>
+            <button data-searchWeather>Search Weather</button>
+        </div>
+
+        <div>
+
+            <!-- grant location container -->
+            <div class="non-active flex flex-col items-center justify-center grant-location-container">
+                <img src="./assets/location.png" alt="location" class="w-20 h-20" loading="lazy">
+                <br>
+                <p>Grant Location Access</p>
+                <br>
+                <p>Allow Access to get Weather Information</p>
+                <br>
+                <button class="bg-blue-500 text-white py-2 px-4 rounded" data-grantAccess>Grant Access</button>
+            </div>
+
+            <!--- loading screen container -->
+            <div class="loading-container non-active">
+                <img src="./assets/loading.gif" width="150" height="150">
+                <p>Loading</p>
+            </div>
+
+            <!-- search form -->
+            <form onsubmit="return false;" class="non-active flex flex-col items-center mb-4"
+                data-searchForm>
+                <div>
+                    <input placeholder="Search for city..." class="border border-gray-300 p-2" data-searchInput>
+                    <button class="bg-blue-500 text-white py-2 px-4 ml-2">
+                        <img src="./assets/search.png" alt="search" class="w-5 h-5" loading="lazy" data-searchIcon>
+                    </button>
+                </div>
+                <div style="display: none;" data-errorMessage>
+                    <img src="./assets/not-found.png" alt=""
+                        style="width: 500px; clear: both; display: block; margin-top: 10px;">
+                </div>
+            </form>
+
+
+            <!-- show weather info -->
+            <div class="user-info-container non-active mb-8">
+
+                <!-- city name and flag -->
+                <div class="flex items-center mb-4">
+                    <p class="text-2xl font-bold mr-2" data-cityName></p>
+                    <img data-countryIcon class="w-6 h-6">
+                </div>
+
+                <!-- weather-description -->
+                <p class="text-lg mb-2" data-weatherDesc></p>
+
+                <!-- weather-icon -->
+                <img data-weatherIcon class="w-16 h-16 mb-2">
+
+                <!-- temperature -->
+                <p class="text-4xl font-bold mb-4" data-temp></p>
+
+                <!-- 3 cards-parameter -->
+                <div class="flex space-x-4">
+
+                    <!-- card 1 -->
+                    <div class="flex flex-col items-center">
+                        <img src="./assets/wind.png" alt="" class="w-8 h-8 mb-2">
+                        <p class="text-lg">Windspeed</p>
+                        <p data-windSpeed class="font-bold"></p>
+                    </div>
+
+                    <!-- card 2 -->
+                    <div class="flex flex-col items-center">
+                        <img src="./assets/humidity.png" alt="" class="w-8 h-8 mb-2">
+                        <p class="text-lg">Humidity</p>
+                        <p data-humidity class="font-bold"></p>
+                    </div>
+
+                    <!-- card 3 -->
+                    <div class="flex flex-col items-center">
+                        <img src="./assets/cloud.png" alt="" class="w-8 h-8 mb-2">
+                        <p class="text-lg">Clouds</p>
+                        <p data-cloudiness class="font-bold"></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
